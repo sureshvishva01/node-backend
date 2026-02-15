@@ -1,11 +1,10 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 
-app.get('/api/health', (req, res) => {
-  res.json({ status: 'Node backend is healthy' });
-});
+const PORT = process.env.PORT || 3000;
 
-const PORT = 3000;
+app.get("/", (req, res) => res.send("Backend OK"));
+
 app.listen(PORT, () => {
-  console.log(`Node backend running on port ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });

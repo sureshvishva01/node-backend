@@ -24,10 +24,10 @@ phases:
 
   post_build:
     commands:
-      - echo Pushing image...
+      - echo Pushing image to Amazon ECR...
       - docker push \
         $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:latest
-      - printf '[{"name":"node-backend","imageUri":"%s"}]' \
+      - printf '[{"name":"backend","imageUri":"%s"}]' \
         $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:latest \
         > imagedefinitions.json
 
